@@ -123,10 +123,13 @@
 
             var script = document.createElement("script");
             script.src = loaderUrl;
+            var gameInstance = null
+
             script.onload = () => {
               createUnityInstance(canvas, config, (progress) => {
                 progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+                gameInstance = unityInstance
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
@@ -135,7 +138,67 @@
                 alert(message);
               });
             };
+
+            function CubeSpeed(value) {
+        console.log(
+          "🚀 ~ file: index.html ~ line 143 ~ CubeSpeed ~ value",
+          value
+        )
+        gameInstance.SendMessage(
+          "ManagerObject",
+          "UpdateCubeSpeed",
+          parseFloat(value)
+        )
+      }
+
+      function SetLimit(value) {
+        console.log(
+          "🚀 ~ file: index.html ~ line 152 ~ SetLimit ~ value",
+          value
+        )
+        gameInstance.SendMessage(
+          "ManagerObject",
+          "UpdateCubeInstantiationLimits",
+          parseFloat(value)
+        )
+      }
+
+      function KillAllCubes() {
+        console.log("🚀 ~ file: index.html ~ line 168 ~ KillAllCubes")
+        gameInstance.SendMessage("ManagerObject", "killAllCubes")
+      }
+
+
             document.body.appendChild(script);
     </script>
+    <button onclick="KillAllCubes()">Kill All Cubes</button>
+    <label>Player Speed</label>
+    <input
+      onchange="PlayerSpeed(this.value)"
+      type="range"
+      min="1"
+      max="100"
+      value="50"
+      class="slider"
+      id="PlayerSpeed"
+    />
+    <label>Cube Speed</label>
+    <input
+      onchange="CubeSpeed(this.value)"
+      type="range"
+      min="1"
+      max="100"
+      value="50"
+      class="slider"
+      id="CubeSpeed"
+    />
+    <label>Cube Limit</label>
+    <input
+      type="number"
+      value="2"
+      min="1"
+      max="100"
+      onchange="SetLimit(this.value)"
+    />
   </body>
 </html>
