@@ -13,6 +13,12 @@ public class SpawnCubes : MonoBehaviour
     public int xPos;
     public int yPos;
 
+    private void Start()
+    {
+       
+        StartCoroutine(AutoRespawn());
+    }
+
     void Update()
     {
         
@@ -53,10 +59,26 @@ public class SpawnCubes : MonoBehaviour
 
     IEnumerator Respawn()
     {
+
         cubeSetAmount = GameObject.FindGameObjectsWithTag("One");
         Debug.Log("Respawning");
         yield return new WaitForSeconds(5f);
         if(cubeSetAmount.Length < gameData.CubeInstantiationLimits)
         SpawnCubeSet();
+    }
+
+    IEnumerator AutoRespawn()
+    {
+       
+        cubeSetAmount = GameObject.FindGameObjectsWithTag("One");
+
+        yield return new WaitForSeconds(5f);
+        while (cubeSetAmount.Length < gameData.CubeInstantiationLimits)
+        {
+            SpawnCubeSet();
+            cubeSetAmount = GameObject.FindGameObjectsWithTag("One");
+            yield return new WaitForSeconds(5);
+        }
+            
     }
 }
