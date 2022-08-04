@@ -4,21 +4,37 @@ using UnityEngine;
 
 public class Procedural : MonoBehaviour
 {
-
+    public static Procedural SharedProcedural;
     bool turnBack = false;
     private Vector3 position;
     public ManagerData gameData;
     [SerializeField] private float cubeSpeed = 1;
+    float xPos;
+    float zPos;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        position = transform.position;
-        Debug.Log(gameData.CubeSpeed + " CB "  + cubeSpeed);
+
+        xPos = Random.Range(-40.0f, 40.0f);
+        zPos = Random.Range(-40.0f, 40.0f);
+      
+   
+        position = new Vector3(xPos, 1f, zPos);
+        transform.position = position;
+      
         if(gameData.CubeSpeed != 0)
         {
             cubeSpeed = gameData.CubeSpeed;
         }
        
+    }
+
+    public void NewCords()
+    {
+        xPos = Random.Range(-40.0f, 40.0f);
+        zPos = Random.Range(-40.0f, 40.0f);
     }
 
     // Update is called once per frame

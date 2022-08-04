@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Manger Data
   m_EditorClassIdentifier: 
   CubeSpeed: 10
-  PlayerSpeed: 0
+  PlayerSpeed: 5
   CubeInstantiationLimits: 5
   PlayerName: 

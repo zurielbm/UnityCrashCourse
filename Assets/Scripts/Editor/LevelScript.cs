@@ -11,7 +11,7 @@ public class LevelScript : MonoBehaviour
 
    public void clicked()
     {
-        weatherRequest = GameObject.FindGameObjectWithTag("Script").GetComponent<WeatherRequest>();
+        weatherRequest = UnityEngine.GameObject.FindGameObjectWithTag("Script").GetComponent<WeatherRequest>();
         Debug.Log("Clicked");
         weatherRequest.GetForcast(latitude, longitude);
       

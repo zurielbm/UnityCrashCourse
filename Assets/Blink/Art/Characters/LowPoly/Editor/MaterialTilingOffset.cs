@@ -9,7 +9,7 @@ namespace BLINK.Tools
         private ScriptableObject scriptableObj;
         private SerializedObject serialObj;
         
-        public GameObject[] gameObjectList;
+        public UnityEngine.GameObject[] gameObjectList;
         private float xOffset = 0.0313f;
         private float yOffset;
 

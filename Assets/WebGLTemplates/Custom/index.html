@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | {{{ PRODUCT_NAME }}}</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <link rel="stylesheet" href="TemplateData/style.css" />
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <button>TEST</button>
-      <canvas
-        id="unity-canvas"
-        width="{{{"
-        width
-        }}}
-        height="{{{"
-        height
-        }}}
-      ></canvas>
+      <canvas id="unity-canvas" width={{{ WIDTH }}} height={{{ HEIGHT }}}></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"></div>
+      <div id="unity-warning"> </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
@@ -178,7 +169,7 @@
       type="range"
       min="1"
       max="100"
-      value="50"
+      value="5"
       class="slider"
       id="PlayerSpeed"
     />
@@ -188,14 +179,14 @@
       type="range"
       min="1"
       max="100"
-      value="50"
+      value="10"
       class="slider"
       id="CubeSpeed"
     />
     <label>Cube Limit</label>
     <input
       type="number"
-      value="2"
+      value="5"
       min="1"
       max="100"
       onchange="SetLimit(this.value)"

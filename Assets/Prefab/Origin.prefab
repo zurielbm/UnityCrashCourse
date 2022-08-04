@@ -499,6 +499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1965570391471488726}
   - component: {fileID: 1965570391471488721}
+  - component: {fileID: 1178153246}
   m_Layer: 0
   m_Name: Origin
   m_TagString: One
@@ -540,6 +541,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 1c4915341a4e7524db90766875e20c0d, type: 2}
   cubeSpeed: 9.28
+--- !u!65 &1178153246
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965570391471488727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1965570391547076777
 GameObject:
   m_ObjectHideFlags: 0
